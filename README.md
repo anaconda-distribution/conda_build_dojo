@@ -118,9 +118,11 @@ If you're planning to make a change to the [upstream repo](https://www.github.co
 
 
 ## TODO
-- Lesons to add:
+- Lessons to add:
     - Create a patch (including on GitHub using .patch extension!)
     - Port a patch
     - Oniguruma (upstream breaking change)
     - How to inspect a failed build (e.g. build_env, h_env)
+    - How to fix a sha mismatch.
+    - How to check for upstream breaking changes. (panel-0.11.0, bokeh, nodejs)
     - Checking the license type in a meta.yaml (Anju's example with pg8000-feedstock)
