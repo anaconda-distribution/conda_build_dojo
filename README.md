@@ -23,7 +23,7 @@ a hall or place for immersive learning or meditation.
 **NOTE**: Only `linux-64` and `noarch` lessons are supported at this time.
 
 1. Fork this repo to your personal Github account.
-2. Clone your forked repo to your local machine (e.g. your Mac), preferably the same directory as `aggregate`.
+2. Clone your forked repo to your local machine (e.g. your Mac), in the same directory as `aggregate`.
 3. From the `conda_build_dojo` root directory, run these steps to set up your remote sources:
     - Check the remote source of your repo (you should only see `origin`, pointing to the repo under your Github account).
         ```
@@ -37,10 +37,11 @@ a hall or place for immersive learning or meditation.
         ```
         git remote -v
         ```
-4. Build the Docker image.
+4. Build the Docker image (might take ~1 minute).
     ```
     docker build --network=host -t dojo_c3i_linux_64 ./docker_images/c3i-linux-64/
     ```
+    Among other things, the build will install system dependencies (e.g. X11, vim), the latest Miniconda, and conda-build.
 5. Run the Docker container, mounted to the local directory on your host that is the parent to `aggregate` and `conda_build_dojo`.
     ```
     docker run -it --mount 'src=</absolute/path/to/conda_build_dojo_and_aggregate_parent>,target=/home/,type=bind' dojo_c3i_linux_64
@@ -48,7 +49,7 @@ a hall or place for immersive learning or meditation.
     # EXAMPLE (if `aggregate` and `conda_build_dojo` share the same parent directory called `projects`):
     docker run -it --mount 'src=/Users/pyim/shared/projects/,target=/home/,type=bind' dojo_c3i_linux_64
     ```
-6. You should now be in the container. Run:
+6. You should now be in the Docker container. Run:
     ```
     start
     ```
