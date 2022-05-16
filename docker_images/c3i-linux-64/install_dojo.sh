@@ -8,3 +8,5 @@ pip install -e .
 pip install git+https://github.com/astanin/python-tabulate.git@b2c26bcb70e497f674b38aa7e29de12c0123708a
 
 exec bash
+
+echo "HELLLO"

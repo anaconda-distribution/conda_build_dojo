@@ -243,6 +243,30 @@ def start(lesson_name):
     Also checks if a user already started the specified lesson 
     and handles accordingly.
     '''
+
+    print("YOU ARE NOW ENTERING ...")
+    print("")
+    print("==================================================================")
+    print("")
+    print("     \\----------------.")
+    print("      \\                \\")
+    print("       |   --------.    \\                   CONDA")
+    print("       |   |        \\    |                  BUILD")
+    print("       |   |         |   |                  ")
+    print("       |   |         |   |    .-------.     -----    .-------.     ")
+    print("       |   |         |   |   /   ___   \\    |   |   /   ___   \\    ")
+    print("       |   |         |   |  |   /   \\   |   |   |  |   /   \\   |   ")
+    print("       |   |         |   |  |  |     |  |   |   |  |  |     |  |   ")
+    print("       |   |         |   |  |  |     |  |   |   |  |  |     |  |   ")
+    print("       |   ---------`    /  |   \\___/   |   |   |  |   \\___/   |   ")
+    print("      /                 /    \\         /    |   |   \\         /   ")
+    print("     /-----------------`      `-------`     /   /    `-------`    ")
+    print("                                         __/   /")
+    print("                                        /     /")
+    print("                                       /_____/")
+    print(" ")
+    print("==================================================================")
+
     lesson_specs = load_lesson_specs(lesson_name)
     feedstock_url = lesson_specs['feedstock_url']
     commit = lesson_specs['commit']
