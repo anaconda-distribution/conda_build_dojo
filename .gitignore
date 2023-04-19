@@ -28,6 +28,6 @@ htmlcov/
 pkgs/
 ~$*.xlsx
 batches/*/scans/*/*.txt
-.DS_Store
+*.DS_Store
 .idea/
 .ipynb_checkpoints/
