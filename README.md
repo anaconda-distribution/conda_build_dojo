@@ -22,6 +22,26 @@ a hall or place for immersive learning or meditation.
 ## Setup 
 **NOTE**: Only `linux-64` and `noarch` lessons are supported at this time.
 
+NEW STEPS
+1. Build the container.
+    ```
+    make build
+    ```
+1. Point to your aggregate directory.
+    ```
+    export AGGREGATE_PATH=/Users/paulyim/codebase/aggregate
+    ```
+1. Run the container.
+    ```
+    make run
+    ```
+1. You should now be in the container. Test that `dojo` works.
+    ```
+    dojo --help
+    ```
+
+
+OLD STEPS
 1. Fork this repo to your personal Github account.
 2. Clone your forked repo to your local machine (e.g. your Mac), in the same directory as `aggregate`.
 3. From the `conda_build_dojo` root directory, run these steps to set up your remote sources:
@@ -44,7 +64,9 @@ a hall or place for immersive learning or meditation.
     Among other things, the build will install system dependencies (e.g. X11, vim), the latest Miniconda, and conda-build.
 5. Run the Docker container, mounted to the local directory on your host that is the parent to `aggregate` and `conda_build_dojo`.
     ```
-    docker run -it --mount 'src=</absolute/path/to/conda_build_dojo_and_aggregate_parent>,target=/home/,type=bind' dojo_c3i_linux_64
+    <!-- docker run -it --rm -v `pwd`:/home public.ecr.aws/y0o4y9o3/anaconda-pkg-build /bin/bash /home/scripts/install_dojo.sh -->
+    docker build --network=host -t dojo_anaconda-pkg-build .
+    docker run -it --mount 'src=/Users/paulyim/codebase/aggregate,target=/home/,type=bind' dojo_anaconda-pkg-build
 
     # EXAMPLE (if `aggregate` and `conda_build_dojo` share the same parent directory called `projects`):
     docker run -it --mount 'src=/Users/pyim/shared/projects/,target=/home/,type=bind' dojo_c3i_linux_64
